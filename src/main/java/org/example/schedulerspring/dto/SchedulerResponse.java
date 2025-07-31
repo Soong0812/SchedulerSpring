@@ -11,13 +11,13 @@ public class SchedulerResponse {
     private String title;
     private String content;
     private String writer;
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     public SchedulerResponse(Schedule schedule) {
         this.id = schedule.getId();
         this.title = schedule.getTitle();
         this.content = schedule.getContent();
         this.writer = schedule.getWriter();
-        this.createAt = schedule.getCreateAt();
+        this.createdAt = schedule.getCreatedAt();
     }
 }
