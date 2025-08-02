@@ -32,4 +32,12 @@ public class SchedulerController {
     ) {
         return schedulerService.getSchedule(scheduleId);
     }
+
+    @PutMapping("/schedules/{scheduleId}")
+    public ResponseEntity<SchedulerResponse> updateSchedule(
+            @PathVariable Long scheduleId,
+            @RequestBody SchedulerRequest request
+    ) {
+        return ResponseEntity.ok(schedulerService.updateSchedule(scheduleId, request));
+    }
 }

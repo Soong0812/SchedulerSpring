@@ -52,4 +52,19 @@ public class SchedulerService {
         );
         return new SchedulerResponse(schedule);
     }
+
+    @Transactional
+    public SchedulerResponse updateSchedule(Long id, SchedulerRequest request) {
+        Schedule schedule = schedulerRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("해당 일정이 없습니다.")
+        );
+
+        if (!schedule.getPassword().equals(request.getPassword())) {
+            throw new IllegalArgumentException("비밀번호가 틀렸습니다.");
+        }
+
+        schedule.updateTitleAndWriter(request.getTitle(), request.getWriter());
+        return new SchedulerResponse(schedule);
+    }
+
 }
