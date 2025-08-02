@@ -67,4 +67,17 @@ public class SchedulerService {
         return new SchedulerResponse(schedule);
     }
 
+    @Transactional
+    public void deleteSchedule(Long id, String password) {
+        Schedule schedule = schedulerRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("해당 일정이 없습니다.")
+        );
+
+        if (!schedule.getPassword().equals(password)) {
+            throw new IllegalArgumentException("비밀번호가 틀렸습니다.");
+        }
+
+        schedulerRepository.deleteById(id);
+    }
+
 }
