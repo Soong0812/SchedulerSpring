@@ -1,7 +1,11 @@
 package org.example.schedulerspring.repository;
 
 import org.example.schedulerspring.entity.Schedule;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SchedulerRepository extends CrudRepository<Schedule,Long> {
+import java.util.List;
+
+public interface SchedulerRepository extends JpaRepository<Schedule,Long> {
+    List<Schedule> findAllByWriterOrderByUpdatedAtDesc(String writer);
+    List<Schedule> findAllByOrderByUpdatedAtDesc();
 }

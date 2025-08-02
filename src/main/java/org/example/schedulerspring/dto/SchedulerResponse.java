@@ -7,11 +7,12 @@ import java.time.LocalDateTime;
 
 @Getter
 public class SchedulerResponse {
-    private Long id;
-    private String title;
-    private String content;
-    private String writer;
-    private LocalDateTime createdAt;
+    private final Long id;
+    private final String title;
+    private final String content;
+    private final String writer;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime updatedAt;
 
     public SchedulerResponse(Schedule schedule) {
         this.id = schedule.getId();
@@ -19,5 +20,7 @@ public class SchedulerResponse {
         this.content = schedule.getContent();
         this.writer = schedule.getWriter();
         this.createdAt = schedule.getCreatedAt();
+        this.updatedAt = schedule.getUpdatedAt();
     }
+
 }
