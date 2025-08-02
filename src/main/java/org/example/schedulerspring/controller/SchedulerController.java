@@ -22,7 +22,9 @@ public class SchedulerController {
     }
 
     @GetMapping("/schedules")
-    public List<SchedulerResponse> getSchedules(String writer) {
+    public List<SchedulerResponse> getSchedules(
+            @RequestParam(required = false) String writer
+    ) {
         return schedulerService.getSchedules(writer);
     }
 
@@ -39,5 +41,14 @@ public class SchedulerController {
             @RequestBody SchedulerRequest request
     ) {
         return ResponseEntity.ok(schedulerService.updateSchedule(scheduleId, request));
+    }
+
+    @DeleteMapping("/schedules/{scheduleId}")
+    public ResponseEntity<Void> deleteSchedule(
+            @PathVariable Long scheduleId,
+            @RequestBody SchedulerRequest request
+    ) {
+        schedulerService.deleteSchedule(scheduleId, request.getPassword());
+        return ResponseEntity.ok().build();
     }
 }
