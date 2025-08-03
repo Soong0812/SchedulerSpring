@@ -76,7 +76,7 @@ Spring Boot 기반의 일정 관리 (Scehduler) API입니다.
 -URL : PUT /schedules/{scheduleId}
 -Id값 1을 수정할 경우
 ```json
-}
+{
   "title": "회의 변경",
   "content": "회의 시간 변경됨",
   "writer" : "홍길동"
