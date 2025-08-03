@@ -10,7 +10,8 @@ Spring Boot 기반의 일정 관리 (Scehduler) API입니다.
 
 ##API 명세
 
-###1. 일정 등록
+
+###일정 등록
 1) 요청
 -URL : POST /schedules
 ```json     
@@ -33,7 +34,8 @@ Spring Boot 기반의 일정 관리 (Scehduler) API입니다.
 }
 ```
 
-###2. 목록 조회
+
+###목록 조회
 1) 전체 조회
 -URL : GET /schedules
 ```json
@@ -69,7 +71,8 @@ Spring Boot 기반의 일정 관리 (Scehduler) API입니다.
 }
 ```
 
-###3. 일정 수정
+
+###일정 수정
 -URL : PUT /schedules/{scheduleId}
 -Id값 1을 수정할 경우
 ```json
@@ -90,7 +93,8 @@ Spring Boot 기반의 일정 관리 (Scehduler) API입니다.
 }
 ```
 
-###4. 일정 삭제
+
+###일정 삭제
 -URL : DELETE /schedules/{scheduleId}
 ```json
 {
