@@ -22,7 +22,9 @@ public class SchedulerController {
     }
 
     @GetMapping("/schedules")
-    public List<SchedulerResponse> getSchedules(String writer) {
+    public List<SchedulerResponse> getSchedules(
+            @RequestParam(required = false) String writer
+    ) {
         return schedulerService.getSchedules(writer);
     }
 
